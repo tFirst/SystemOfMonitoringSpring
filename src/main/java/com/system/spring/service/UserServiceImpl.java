@@ -1,9 +1,11 @@
 package com.system.spring.service;
 
-import com.system.spring.entity.User;
+import com.system.spring.entity.Users;
 import com.system.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collection;
 
@@ -19,12 +21,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Collection<User> findAll() {
+    public Collection<Users> findAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public String isAuth(String login, String password) {
-        return null;
+    public ModelAndView isAuth(Authentication authentication) {
+        if (authentication.isAuthenticated()) {
+            return new ModelAndView("hello");
+        } else {
+            return new ModelAndView("login");
+        }
     }
 }

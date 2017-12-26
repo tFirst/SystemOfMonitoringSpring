@@ -7,14 +7,6 @@
     <title>Hello World!</title>
 </head>
 <body>
-<h1>${test}</h1>
-<form action="goBack" method="POST">
-    <input type="text" name="message">
-    <input type="submit">
-
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-</form>
-
-<a href="index">Go home</a>
+<h1>Oops... error :(</h1>
 </body>
 </html>

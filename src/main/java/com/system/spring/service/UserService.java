@@ -1,11 +1,13 @@
 package com.system.spring.service;
 
-import com.system.spring.entity.User;
+import com.system.spring.entity.Users;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collection;
 
 public interface UserService {
-    Collection<User> findAll();
+    Collection<Users> findAll();
 
-    String isAuth(String login, String password);
+    ModelAndView isAuth(Authentication authentication);
 }
